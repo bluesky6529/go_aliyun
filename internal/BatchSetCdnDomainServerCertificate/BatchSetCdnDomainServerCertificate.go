@@ -6,7 +6,7 @@ import (
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/cdn"
 )
 
-func BatchSetCdnDomainServerCertificate(AccessKeyID string, AccessKeySecret string) {
+func BatchSetCdnDomainServerCertificate(AccessKeyID string, AccessKeySecret string) string {
 	client, err := cdn.NewClientWithAccessKey("cn-hangzhou", AccessKeyID, AccessKeySecret)
 
 	request := cdn.CreateBatchSetCdnDomainServerCertificateRequest()
@@ -16,7 +16,7 @@ func BatchSetCdnDomainServerCertificate(AccessKeyID string, AccessKeySecret stri
 	request.SSLProtocol = "on"
 	request.CertName = "8j24k.cn"
 	request.CertType = "upload"
-	request.SSLPub = "-----BEGIN CERTIFICATE-----
+	request.SSLPub = `-----BEGIN CERTIFICATE-----
 	MIIFIjCCBAqgAwIBAgISBMqPy6+Q7TWmhdq4/ay5iYuGMA0GCSqGSIb3DQEBCwUA
 	MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD
 	EwJSMzAeFw0yMTA0MjIwODM2MDZaFw0yMTA3MjEwODM2MDZaMBMxETAPBgNVBAMT
@@ -71,8 +71,8 @@ func BatchSetCdnDomainServerCertificate(AccessKeyID string, AccessKeySecret stri
 	qjBstzLhWVQLGAkXXmNs+5ZnPBxzDJOLxhF2JIbeQAcH5H0tZrUlo5ZYyOqA7s9p
 	O5b85o3AM/OJ+CktFBQtfvBhcJVd9wvlwPsk+uyOy2HI7mNxKKgsBTt375teA2Tw
 	UdHkhVNcsAKX1H7GNNLOEADksd86wuoXvg==
-	-----END CERTIFICATE-----"
-	request.SSLPri = "-----BEGIN PRIVATE KEY-----
+	-----END CERTIFICATE-----`
+	request.SSLPri = `-----BEGIN PRIVATE KEY-----
 	MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDLqgRSl5FELHTb
 	ai38EuT/bGBnasTN1zUl/bCZ3uCByvmJihP8Y2RFmFVdHmvDG+uqgVVe8Q32u5wk
 	Of9de1HC3BaNcOcVUhblDX6jSWYCLZL/28Mk4oWew3t5ghX2vGN6t+WE9hLPWGqi
@@ -99,11 +99,12 @@ func BatchSetCdnDomainServerCertificate(AccessKeyID string, AccessKeySecret stri
 	781Nlx/5vjO5Uj2eCzMhTx7Cia4ZLS6HaMkdEy3SAR2IXFhmkIPuZM9UwuD03JZO
 	AFVLV0rX+GYdFmOJGSJY8rRjOVNzy/9FOSg9yqMoi6BcrHhtRSDdey+/GLCIdGw3
 	8vZVCO2o4n3lftt5XnyoAEtwRQ==
-	-----END PRIVATE KEY-----"
+	-----END PRIVATE KEY-----`
 
 	response, err := client.BatchSetCdnDomainServerCertificate(request)
 	if err != nil {
 		fmt.Print(err.Error())
 	}
 	fmt.Printf("response is %#v\n", response)
+	return response.String()
 }
