@@ -8,6 +8,5 @@ require (
 	github.com/json-iterator/go v1.1.10 // indirect
 	github.com/spf13/cobra v1.1.1
 	github.com/spf13/viper v1.7.1
-	github.com/tidwall/gjson v1.6.7
 	gopkg.in/ini.v1 v1.62.0 // indirect
 )

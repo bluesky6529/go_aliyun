@@ -10,7 +10,7 @@ var rootCmd = &cobra.Command{
 	Long:  "",
 }
 
-var url, account, dir string
+var url, account, dir, sslpub, sslpri string
 
 func Execute() error {
 	return rootCmd.Execute()
@@ -22,5 +22,5 @@ func init() {
 	rootCmd.AddCommand(queryaccountbalance)
 	rootCmd.AddCommand(describerefreshtasks)
 	rootCmd.AddCommand(describedcdnrefreshtasks)
-
+	rootCmd.AddCommand(batchsetcdndomainservercertificate)
 }

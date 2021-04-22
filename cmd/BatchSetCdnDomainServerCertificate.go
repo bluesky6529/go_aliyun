@@ -19,16 +19,18 @@ var batchsetcdndomainservercertificate = &cobra.Command{
 		var AccessKeyID = viper.GetString(account + ".AccessKeyID")
 		var AccessKeySecret = viper.GetString(account + ".AccessKeySecret")
 
-		request = BatchSetCdnDomainServerCertificate.BatchSetCdnDomainServerCertificate(AccessKeyID, AccessKeySecret)
+		request = BatchSetCdnDomainServerCertificate.BatchSetCdnDomainServerCertificate(AccessKeyID, AccessKeySecret, url, sslpub, sslpri)
 		log.Printf("输出结果: %s", request)
 	},
 }
 
 func init() {
 	batchsetcdndomainservercertificate.Flags().StringVarP(&account, "account", "a", "", "帳號 (require)")
-	//batchsetcdndomainservercertificate.Flags().StringVarP(&url, "url", "u", "", "輸入刷新url(EX:https://abc.com/) (require)")
-	//batchsetcdndomainservercertificate.Flags().StringVarP(&dir, "dir", "d", "", "刷新目錄輸入Directory 刷新url 輸入File (require)")
-	//batchsetcdndomainservercertificate.MarkFlagRequired("url")
+	batchsetcdndomainservercertificate.Flags().StringVarP(&url, "url", "u", "", "輸入刷新url(EX:https://abc.com/) (require)")
+	batchsetcdndomainservercertificate.Flags().StringVarP(&sslpub, "sslpub", "k", "", "(require)")
+	batchsetcdndomainservercertificate.Flags().StringVarP(&sslpri, "sslpri", "j", "", "(require)")
+	batchsetcdndomainservercertificate.MarkFlagRequired("url")
 	batchsetcdndomainservercertificate.MarkFlagRequired("account")
-	//batchsetcdndomainservercertificate.MarkFlagRequired("dir")
+	batchsetcdndomainservercertificate.MarkFlagRequired("sslpub")
+	batchsetcdndomainservercertificate.MarkFlagRequired("sslpri")
 }
