@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"fmt"
+	"io/ioutil"
 	"log"
 
 	_ "github.com/bluesky6529/go_aliyun/configs"
@@ -19,7 +21,19 @@ var batchsetcdndomainservercertificate = &cobra.Command{
 		var AccessKeyID = viper.GetString(account + ".AccessKeyID")
 		var AccessKeySecret = viper.GetString(account + ".AccessKeySecret")
 
-		request = BatchSetCdnDomainServerCertificate.BatchSetCdnDomainServerCertificate(AccessKeyID, AccessKeySecret, url, sslpub, sslpri)
+		sslpub_val, err := ioutil.ReadFile(sslpub)
+		if err != nil {
+			fmt.Println("read fail", err)
+		}
+		//var sslpub_str = string(sslpub_val)
+
+		sslpri_val, err := ioutil.ReadFile(sslpri)
+		if err != nil {
+			fmt.Println("read fail", err)
+		}
+		//var sslpri_str = string(sslpri_val)
+
+		request = BatchSetCdnDomainServerCertificate.BatchSetCdnDomainServerCertificate(AccessKeyID, AccessKeySecret, url, string(sslpub_val), string(sslpri_val))
 		log.Printf("输出结果: %s", request)
 	},
 }

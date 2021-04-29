@@ -2,7 +2,6 @@ package BatchSetCdnDomainServerCertificate
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/cdn"
 )
@@ -15,7 +14,7 @@ func BatchSetCdnDomainServerCertificate(AccessKeyID string, AccessKeySecret stri
 
 	request.DomainName = DomainName
 	request.SSLProtocol = "on"
-	request.CertName = DomainName + "--" + time.Now().Format("20060102")
+	//request.CertName = DomainName + "-" + time.Now().Format("20060102")
 	request.CertType = "upload"
 	request.SSLPub = SSLPub
 	request.SSLPri = SSLPri
@@ -25,5 +24,5 @@ func BatchSetCdnDomainServerCertificate(AccessKeyID string, AccessKeySecret stri
 		fmt.Print(err.Error())
 	}
 	fmt.Printf("response is %#v\n", response)
-	return request.SSLPri + "\n" + request.SSLPub
+	return response.String()
 }
