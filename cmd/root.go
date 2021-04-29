@@ -23,4 +23,6 @@ func init() {
 	rootCmd.AddCommand(describerefreshtasks)
 	rootCmd.AddCommand(describedcdnrefreshtasks)
 	rootCmd.AddCommand(batchsetcdndomainservercertificate)
+	rootCmd.AddCommand(batchsetdcdndomaincertificate)
+	rootCmd.AddCommand(describedomaincertificateinfo)
 }

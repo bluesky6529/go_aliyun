@@ -14,8 +14,8 @@ import (
 
 var batchsetcdndomainservercertificate = &cobra.Command{
 	Use:   "BatchSetCdnDomainServerCertificate",
-	Short: "更新憑證",
-	Long:  "用來更新憑證 使用方法如下 : \n刷新目錄: BatchSetCdnDomainServerCertificate -a <account> \n刷新url: BatchSetCdnDomainServerCertificate -a <account> ",
+	Short: "更新CDN憑證",
+	Long:  "用來更新憑證 使用方法如下 : \n BatchSetCdnDomainServerCertificate -a <account> -u <url>\n EX: BatchSetCdnDomainServerCertificate -a <account> -u abc.com",
 	Run: func(cmd *cobra.Command, args []string) {
 		var request string
 		var AccessKeyID = viper.GetString(account + ".AccessKeyID")
@@ -43,8 +43,8 @@ func init() {
 	batchsetcdndomainservercertificate.Flags().StringVarP(&url, "url", "u", "", "輸入刷新url(EX:https://abc.com/) (require)")
 	batchsetcdndomainservercertificate.Flags().StringVarP(&sslpub, "sslpub", "k", "", "(require)")
 	batchsetcdndomainservercertificate.Flags().StringVarP(&sslpri, "sslpri", "j", "", "(require)")
-	batchsetcdndomainservercertificate.MarkFlagRequired("url")
 	batchsetcdndomainservercertificate.MarkFlagRequired("account")
+	batchsetcdndomainservercertificate.MarkFlagRequired("url")
 	batchsetcdndomainservercertificate.MarkFlagRequired("sslpub")
 	batchsetcdndomainservercertificate.MarkFlagRequired("sslpri")
 }
