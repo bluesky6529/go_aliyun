@@ -14,8 +14,8 @@ import (
 
 var batchsetcdndomainservercertificate = &cobra.Command{
 	Use:   "BatchSetCdnDomainServerCertificate",
-	Short: "更新CDN憑證",
-	Long:  "用來更新憑證 使用方法如下 : \n BatchSetCdnDomainServerCertificate -a <account> -u <url>\n EX: BatchSetCdnDomainServerCertificate -a <account> -u abc.com",
+	Short: "更新CDN 憑證",
+	Long:  "用來更新憑證 使用方法如下 : \n BatchSetCdnDomainServerCertificate -a <account> -u <url> -k 公鑰位置 -j 私鑰位置\n EX: BatchSetCdnDomainServerCertificate -a <account> -u abc.com -k fullchain.pem -j privkey.pem",
 	Run: func(cmd *cobra.Command, args []string) {
 		var request string
 		var AccessKeyID = viper.GetString(account + ".AccessKeyID")

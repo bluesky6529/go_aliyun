@@ -12,8 +12,8 @@ import (
 
 var describedcdnrefreshtasks = &cobra.Command{
 	Use:   "DescribeDcdnRefreshTasks",
-	Short: "刷新dcdn 進度",
-	Long:  "用來查看刷新cdn 進度，請輸入你刷新的url/目錄，使用方法如下 : \nDescribeDcdnRefreshTasks -a <帳戶名稱> -u <url> \nex: DescribeDcdnRefreshTasks -a account -u https://abc.com/",
+	Short: "刷新DCDN 進度",
+	Long:  "用來查看刷新DCDN進度，請輸入你刷新的url/目錄，使用方法如下 : \nDescribeDcdnRefreshTasks -a <帳戶名稱> -u <url> \nex: DescribeDcdnDomainCertificateInfo -a account -u https://abc.com/",
 	Run: func(cmd *cobra.Command, args []string) {
 		var AccessKeyID = viper.GetString(account + ".AccessKeyID")
 		var AccessKeySecret = viper.GetString(account + ".AccessKeySecret")

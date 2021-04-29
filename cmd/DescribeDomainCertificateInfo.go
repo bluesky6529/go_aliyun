@@ -12,8 +12,8 @@ import (
 
 var describedomaincertificateinfo = &cobra.Command{
 	Use:   "DescribeDomainCertificateInfo",
-	Short: "查看域名憑證",
-	Long:  "查看域名憑證，使用方法如下 : \nDescribeDomainCertificateInfo -a <帳戶名稱> -u <url> \nex: DescribeRefreshTasks -a account -u abc.com",
+	Short: "查看CDN 域名憑證",
+	Long:  "查看CDN 域名憑證，使用方法如下 : \nDescribeDomainCertificateInfo -a <帳戶名稱> -u <url> \nex: DescribeRefreshTasks -a account -u abc.com",
 	Run: func(cmd *cobra.Command, args []string) {
 		var AccessKeyID = viper.GetString(account + ".AccessKeyID")
 		var AccessKeySecret = viper.GetString(account + ".AccessKeySecret")
@@ -24,8 +24,8 @@ var describedomaincertificateinfo = &cobra.Command{
 }
 
 func init() {
-	describerefreshtasks.Flags().StringVarP(&account, "account", "a", "", "帳號 (require)")
-	describerefreshtasks.MarkFlagRequired("account")
-	describerefreshtasks.Flags().StringVarP(&url, "url", "u", "", "輸入刷新url(EX:abc.com)")
-	//describerefreshtasks.MarkFlagRequired("url")
+	describedomaincertificateinfo.Flags().StringVarP(&account, "account", "a", "", "帳號 (require)")
+	describedomaincertificateinfo.MarkFlagRequired("account")
+	describedomaincertificateinfo.Flags().StringVarP(&url, "url", "u", "", "輸入刷新url(EX:abc.com)")
+	describedomaincertificateinfo.MarkFlagRequired("url")
 }

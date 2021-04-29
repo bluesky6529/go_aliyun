@@ -12,8 +12,8 @@ import (
 
 var describerefreshtasks = &cobra.Command{
 	Use:   "DescribeRefreshTasks",
-	Short: "刷新cdn 進度",
-	Long:  "用來查看刷新dcdn 進度，需要知道原本的taskid，使用方法如下 : \nDescribeRefreshTasks -a <帳戶名稱> -u <url> \nex: DescribeRefreshTasks -a account -u https://abc.com",
+	Short: "刷新CDN 進度",
+	Long:  "用來查看刷新CDN 進度，使用方法如下 : \nDescribeRefreshTasks -a <帳戶名稱> -u <url> \nex: DescribeRefreshTasks -a account -u https://abc.com",
 	Run: func(cmd *cobra.Command, args []string) {
 		var AccessKeyID = viper.GetString(account + ".AccessKeyID")
 		var AccessKeySecret = viper.GetString(account + ".AccessKeySecret")

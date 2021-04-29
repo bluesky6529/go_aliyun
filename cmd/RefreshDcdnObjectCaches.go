@@ -13,8 +13,8 @@ import (
 
 var refreshdcdnobjectcaches = &cobra.Command{
 	Use:   "RefreshDcdnObjectCaches",
-	Short: "刷新Dcdn url/目錄",
-	Long:  "用來刷新dcdn目錄 or url 使用方法如下 : \n刷新目錄: RefreshDcdnObjectCaches -a <account> -d Directory -u http://abc.com/ \n刷新url: RefreshDcdnObjectCaches -a <account> -d File -u http://abc.com/index.html",
+	Short: "刷新DCDN url/目錄",
+	Long:  "用來刷新DCDN 目錄 or url 使用方法如下 : \n刷新目錄: RefreshDcdnObjectCaches -a <account> -d Directory -u http://abc.com/ \n刷新url: RefreshDcdnObjectCaches -a <account> -d File -u http://abc.com/index.html",
 	Run: func(cmd *cobra.Command, args []string) {
 		var request string
 		var AccessKeyID = viper.GetString(account + ".AccessKeyID")

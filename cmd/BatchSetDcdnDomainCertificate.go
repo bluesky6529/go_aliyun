@@ -14,7 +14,7 @@ import (
 
 var batchsetdcdndomaincertificate = &cobra.Command{
 	Use:   "BatchSetDcdnDomainCertificate",
-	Short: "更新DCDN憑證",
+	Short: "更新DCDN 憑證",
 	Long:  "用來更新憑證 使用方法如下 : \n BatchSetDcdnDomainCertificate -a <account> -u <url> -k 公鑰位置 -j 私鑰位置\n EX: BatchSetDcdnDomainCertificate -a <account> -u abc.com -k fillchain.pem -j prikey.pem",
 	Run: func(cmd *cobra.Command, args []string) {
 		var request string
@@ -39,12 +39,12 @@ var batchsetdcdndomaincertificate = &cobra.Command{
 }
 
 func init() {
-	batchsetcdndomainservercertificate.Flags().StringVarP(&account, "account", "a", "", "帳號 (require)")
-	batchsetcdndomainservercertificate.Flags().StringVarP(&url, "url", "u", "", "輸入刷新url(EX:https://abc.com/) (require)")
-	batchsetcdndomainservercertificate.Flags().StringVarP(&sslpub, "sslpub", "k", "", "(require)")
-	batchsetcdndomainservercertificate.Flags().StringVarP(&sslpri, "sslpri", "j", "", "(require)")
-	batchsetcdndomainservercertificate.MarkFlagRequired("url")
-	batchsetcdndomainservercertificate.MarkFlagRequired("account")
-	batchsetcdndomainservercertificate.MarkFlagRequired("sslpub")
-	batchsetcdndomainservercertificate.MarkFlagRequired("sslpri")
+	batchsetdcdndomaincertificate.Flags().StringVarP(&account, "account", "a", "", "帳號 (require)")
+	batchsetdcdndomaincertificate.Flags().StringVarP(&url, "url", "u", "", "輸入刷新url(EX:https://abc.com/) (require)")
+	batchsetdcdndomaincertificate.Flags().StringVarP(&sslpub, "sslpub", "k", "", "(require)")
+	batchsetdcdndomaincertificate.Flags().StringVarP(&sslpri, "sslpri", "j", "", "(require)")
+	batchsetdcdndomaincertificate.MarkFlagRequired("url")
+	batchsetdcdndomaincertificate.MarkFlagRequired("account")
+	batchsetdcdndomaincertificate.MarkFlagRequired("sslpub")
+	batchsetdcdndomaincertificate.MarkFlagRequired("sslpri")
 }

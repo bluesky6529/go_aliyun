@@ -18,6 +18,8 @@ func DescribeDomainCertificateInfo(AccessKeyID string, AccessKeySecret string, D
 	if err != nil {
 		fmt.Print(err.Error())
 	}
-	fmt.Printf("response is %#v\n", response)
+	//fmt.Printf("response is %#v\n", response)
+	//return gjson.Get(response.CertInfos.CertInfo, "CertExpireTime").String()
+	//const json = response.CertInfos.CertInfo
 	return response.String()
 }

@@ -14,7 +14,7 @@ import (
 var refreshobjectcaches = &cobra.Command{
 	Use:   "RefreshObjectCaches",
 	Short: "刷新CDN url/目錄",
-	Long:  "用來刷新cdn目錄 or url 使用方法如下 : \n刷新目錄: RefreshObjectCaches -a <account> -d Directory -u http://abc.com/ \n刷新url: RefreshObjectCaches -a <account> -d File -u http://abc.com/index.html",
+	Long:  "用來刷新CDN 目錄 or url 使用方法如下 : \n刷新目錄: RefreshObjectCaches -a <account> -d Directory -u http://abc.com/ \n刷新url: RefreshObjectCaches -a <account> -d File -u http://abc.com/index.html",
 	Run: func(cmd *cobra.Command, args []string) {
 		var request string
 		var AccessKeyID = viper.GetString(account + ".AccessKeyID")

@@ -19,15 +19,28 @@ Usage:
    [command]
 
 Available Commands:
-  DescribeDcdnRefreshTasks 刷新cdn 進度
-  DescribeRefreshTasks     刷新dcdn 進度
-  QueryAccountBalance      查詢帳戶餘額
-  RefreshDcdnObjectCaches  刷新Dcdn url/目錄
-  RefreshObjectCaches      刷新CDN url/目錄
-  help                     Help about any command
+  BatchSetCdnDomainServerCertificate 更新CDN 憑證
+  BatchSetDcdnDomainCertificate      更新DCDN 憑證
+  DescribeDcdnDomainCertificateInfo  查看DCDN 域名憑證
+  DescribeDcdnRefreshTasks           刷新DCDN 進度
+  DescribeDomainCertificateInfo      查看CDN 域名憑證
+  DescribeRefreshTasks               刷新CDN 進度
+  QueryAccountBalance                查詢帳戶餘額
+  RefreshDcdnObjectCaches            刷新DCDN url/目錄
+  RefreshObjectCaches                刷新CDN url/目錄
+  help                               Help about any command
 
 Flags:
   -h, --help   help for this command
 
 Use " [command] --help" for more information about a command.
+```
+
+### for myself memo
+#### remember windows to linux env
+```
+SET CGO_ENABLED=0
+SET GOOS=linux
+SET GOARCH=amd64
+go build .
 ```

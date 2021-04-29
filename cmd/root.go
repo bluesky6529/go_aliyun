@@ -25,4 +25,5 @@ func init() {
 	rootCmd.AddCommand(batchsetcdndomainservercertificate)
 	rootCmd.AddCommand(batchsetdcdndomaincertificate)
 	rootCmd.AddCommand(describedomaincertificateinfo)
+	rootCmd.AddCommand(describedcdndomaincertificateInfo)
 }
